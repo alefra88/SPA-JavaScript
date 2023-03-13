@@ -4,7 +4,7 @@
 
 ## 2. AJAX Fetch
 
-## 3.
+## 3. UI first components(Title,Loader)
 
 ## 4.
 
