@@ -2,29 +2,34 @@ import { ajax } from "../helpers/ajax.js";
 import api from "../helpers/wp_api.js";
 import { PostCard } from "./PostCard.js";
 
-export function Router() {
-  const $posts = document.getElementById("posts");
+export async function Router() {
+  const d = document,
+    $main = d.getElementById("main");
   let { hash } = location;
   console.log(hash);
 
-  $posts.innerHTML = null;
+  $main.innerHTML = null;
 
   if (!hash || hash === "#/") {
-    ajax({
+    await ajax({
       url: api.POSTS,
       cbSuccess: (posts) => {
         console.log(posts);
         let html = "";
         posts.forEach((post) => (html += PostCard(post)));
-        document.querySelector(".loader").style.display = "none";
-        $posts.innerHTML = html;
+        d.querySelector(".loader").style.display = "none";
+        $main.innerHTML = html;
       },
     });
   } else if (hash.includes("#/search")) {
-    $posts.innerHTML = "<h2> Secciòn del Buscador </h2>";
+    $main.innerHTML = "<h2> Secciòn del Buscador </h2>";
+    // d.querySelector(".loader").style.display = "none";
   } else if (hash === "#/contacto") {
-    $posts.innerHTML = `<h2> Secciòn de Contacto </h2>`;
+    $main.innerHTML = "<h2> Secciòn de Contacto </h2>";
+    // d.querySelector(".loader").style.display = "none";
   } else {
-    $posts.innerHTML = `<h2> Contenido del post seleccionado </h2>`;
+    $main.innerHTML = "<h2> Contenido del post seleccionado </h2>";
+    // d.querySelector(".loader").style.display = "none";
   }
+  d.querySelector(".loader").style.display = "none";
 }
