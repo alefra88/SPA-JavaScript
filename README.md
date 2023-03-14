@@ -8,4 +8,14 @@
 
 ## 4. UI component: Header
 
-## 5.
+## 5. Render Posts Cards components
+
+## 6.
+
+## 7.
+
+## 8.
+
+## 9.
+
+## 10.
