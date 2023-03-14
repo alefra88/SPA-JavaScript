@@ -10,7 +10,7 @@
 
 ## 5. Render Posts Cards components
 
-## 6.
+## 6. Routering
 
 ## 7.
 
