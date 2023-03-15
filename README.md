@@ -12,7 +12,7 @@
 
 ## 6. Routering
 
-## 7.
+## 7. Rendering Post (need fix)
 
 ## 8.
 
