@@ -1,14 +1,14 @@
 export function Post(props) {
-  let { content, date, title } = props,
-    dateFormat = new Date(date).toLocaleString();
-  return `
+  let { content, date, title } = props;
+  let dateFormat = new Date(date).toLocaleString();
+  return document.createRange().createContextualFragment(`
   <section class="post-page">
   <aside>
   <h2>${title.rendered}</h2>
-  <time datetime="date">date</time>
+  <time datetime="${date}">${dateFormat}</time>
   </aside>
   <hr>
-  <article>content</article>
+  <article>${content}</article>
   </section>
-  `;
+  `);
 }
