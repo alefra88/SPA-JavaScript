@@ -31,8 +31,9 @@ export async function Router() {
   } else {
     // $main.innerHTML = "<h2>Contenido</h2>";
     // console.log(`${api.POST}/${hash}`);
+    let urls = window.location.hash.slice(2);
     await ajax({
-      url: `${api.POST}/${hash}`,
+      url: `${api.POST}?slug=${hash.slice(2)}`,
       cbSuccess: (post) => {
         console.log(post);
         $main.innerHTML = Post(post);

@@ -1,7 +1,7 @@
 export function Post(props) {
-  let { content, date, title } = props;
+  let { content, date, title } = props[0];
   let dateFormat = new Date(date).toLocaleString();
-  return document.createRange().createContextualFragment(`
+  return `
   <section class="post-page">
   <aside>
   <h2>${title.rendered}</h2>
@@ -10,5 +10,5 @@ export function Post(props) {
   <hr>
   <article>${content}</article>
   </section>
-  `);
+  `;
 }
