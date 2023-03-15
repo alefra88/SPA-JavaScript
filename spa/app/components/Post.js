@@ -8,7 +8,7 @@ export function Post(props) {
   <time datetime="${date}">${dateFormat}</time>
   </aside>
   <hr>
-  <article>${content}</article>
+  <article>${content.rendered}</article>
   </section>
   `;
 }

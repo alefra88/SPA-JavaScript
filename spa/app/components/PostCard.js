@@ -6,10 +6,10 @@ export function PostCard(props) {
         ? _embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
         : "./spa/app/assets/zorro.png";
 
-  document.addEventListener("click", (e) => {
-    if (!e.target.matches("post-card a")) return false;
-    localStorage.setItem("wpPostId", e.target.dataset.id);
-  });
+  // document.addEventListener("click", (e) => {
+  //   if (!e.target.matches("post-card a")) return false;
+  //   localStorage.setItem("wpPostId", e.target.dataset.id);
+  // });
   return `
   <article class="post-card">
   <img src="${urlPoster}" alt="${title.rendered}">
