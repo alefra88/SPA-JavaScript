@@ -23,7 +23,21 @@ export async function Router() {
       },
     });
   } else if (hash.includes("#/search")) {
-    $main.innerHTML = "<h2> Secciòn del Buscador </h2>";
+    const urlSearch = new URLSearchParams(window.location.hash.slice(8));
+    const search = urlSearch.get("search");
+    await ajax({
+      url: `${api.SEARCH}`,
+      cbSuccess: async (posts) => {
+        console.log(search);
+        let html = "";
+        posts.forEach((post) => {
+          const title = post.title.rendered.toLowerCase();
+          if (title.includes(search)) location.hash = "#/" + post.slug;
+        });
+        $main.innerHTML = html;
+      },
+    });
+
     // d.querySelector(".loader").style.display  = "none";
   } else if (hash === "#/contacto") {
     $main.innerHTML = "<h2> Secciòn de Contacto </h2>";
@@ -31,7 +45,7 @@ export async function Router() {
   } else {
     // $main.innerHTML = "<h2>Contenido</h2>";
     // console.log(`${api.POST}/${hash}`);
-    let urls = window.location.hash.slice(2);
+    // let urls = window.location.hash.slice(2);
     await ajax({
       url: `${api.POST}?slug=${hash.slice(2)}`,
       cbSuccess: (post) => {

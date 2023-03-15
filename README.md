@@ -12,10 +12,12 @@
 
 ## 6. Routering
 
-## 7. Rendering Post (need fix)
+## 7. Rendering Post ( fixed)
 
-## 8.
+## 8. Searcher (need fix)
 
-## 9.
+## 9. searcher view
 
-## 10.
+## 10. infinite scroll and high order
+
+## 11. styled components and single page
