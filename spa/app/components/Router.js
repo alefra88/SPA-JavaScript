@@ -1,5 +1,6 @@
 import { ajax } from "../helpers/ajax.js";
 import api from "../helpers/wp_api.js";
+import { ContactForm } from "./contactForm.js";
 import { Post } from "./Post.js";
 import { PostCard } from "./PostCard.js";
 
@@ -41,7 +42,8 @@ export async function Router() {
     }
     // d.querySelector(".loader").style.display  = "none";
   } else if (hash === "#/contacto") {
-    $main.innerHTML = "<h2> Secciòn de Contacto </h2>";
+    // $main.innerHTML = "<h2> Secciòn de Contacto </h2>";
+    $main.appendChild(ContactForm());
     // d.querySelector(".loader").style.display = "none";
   } else {
     // $main.innerHTML = "<h2>Contenido</h2>";
