@@ -25,19 +25,20 @@ export async function Router() {
   } else if (hash.includes("#/search")) {
     const urlSearch = new URLSearchParams(window.location.hash.slice(8));
     const search = urlSearch.get("search");
-    await ajax({
-      url: `${api.SEARCH}`,
-      cbSuccess: async (posts) => {
-        console.log(search);
-        let html = "";
-        posts.forEach((post) => {
-          const title = post.title.rendered.toLowerCase();
-          if (title.includes(search)) location.hash = "#/" + post.slug;
-        });
-        $main.innerHTML = html;
-      },
-    });
-
+    if (search !== null && search !== undefined && search !== "") {
+      await ajax({
+        url: `${api.SEARCH}`,
+        cbSuccess: async (posts) => {
+          console.log(search);
+          let html = "";
+          posts.forEach((post) => {
+            const title = post.title.rendered.toLowerCase();
+            if (title.includes(search)) location.hash = "#/" + post.slug;
+          });
+          $main.innerHTML = html;
+        },
+      });
+    }
     // d.querySelector(".loader").style.display  = "none";
   } else if (hash === "#/contacto") {
     $main.innerHTML = "<h2> Secciòn de Contacto </h2>";
